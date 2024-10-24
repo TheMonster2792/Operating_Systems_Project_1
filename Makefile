@@ -17,9 +17,10 @@ consumer.o: consumer.cpp
 	$(CXX) $(CXXFLAGS) -c consumer.cpp
 
 test: producer consumer
-	./producer &
+	./producer&
 	./consumer
 
 clean:
 	rm -f *.o $(TARGETS)
 	rm -f /dev/shm/sharedBuffer
+	pkill producer
